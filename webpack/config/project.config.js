@@ -61,7 +61,7 @@ const config = {
       resolve(process.cwd(), "./src/assets"),
       resolve(process.cwd(), "./src/libs"),
       resolve(process.cwd(), "./src/components"),
-      resolve(process.cwd(), "./src/provider"),
+      resolve(process.cwd(), "./src/service"),
       resolve(process.cwd(), "./src/store"),
       "node_modules"
     ],
@@ -70,7 +70,7 @@ const config = {
       'assets': resolve(process.cwd(), './src/assets'),
       'libs': resolve(process.cwd(), './src/libs'),
       'components': resolve(process.cwd(), './src/components'),
-      'provider': resolve(process.cwd(), './src/provider'),
+      'service': resolve(process.cwd(), './src/service'),
       'store': resolve(process.cwd(), './src/store')
     }
   }

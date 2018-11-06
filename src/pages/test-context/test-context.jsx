@@ -4,25 +4,35 @@ import React from 'react'
 import { render } from 'react-dom'
 import App from './app.jsx'
 
-// provider
-import { setProvider } from 'provider'
+// 组合provider的函数
+import { combineProvider } from 'libs/combine-provider'
+// service
+import { setService } from 'service'
+import dateFormat from 'service/format/date-format'
 // store
 import { setStore } from 'store'
 
+// 顶层store
 let store = {
-  a: '999'
+  time: new Date().getTime(),
+  person: {
+    name: 'chen',
+    age: 29
+  }
 }
 
 // 顶层需要注入的方法
 let providers = Object.assign(
   {},
-  {
-    test: '000'
-  }
+  dateFormat
 )
 
 render(
-  // Context.Provider注入方法，供子组件使用
-  setStore(setProvider(App, providers), store),
+  // 顶层注入service和store等provider
+  combineProvider(
+    App, 
+    setService(providers), 
+    setStore(store)
+  ),
   document.getElementById('app')
 )

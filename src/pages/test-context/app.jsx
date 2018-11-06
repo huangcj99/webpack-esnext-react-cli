@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { injectMethods } from 'provider'
+import { injectMethods } from 'service'
 import { injectStore } from 'store'
 import TestState from './components/test-state'
 
@@ -12,9 +12,15 @@ export default class App extends Component {
 
   componentDidMount () {
     let { setContext } = this.props
+
     setTimeout(() => {
+      // 更改context中的值
       setContext({
-        a: '222'
+        time: new Date().getTime() + new Date().getTime(),
+        person: {
+          name: 'huang',
+          age: 19
+        }
       })
     }, 2000)
   }

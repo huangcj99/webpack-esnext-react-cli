@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 
-export const Context = React.createContext()
+export const ServiceContext = React.createContext()
 
 /**
- * @param {component} RootComponent 
+ * @param {component} RootComponent 传入class或者实例化的组件都可以
  * @param {object} globalMethods 
  */
-export const setProvider = (RootComponent, providers) => {
-  return (
-    <Context.Provider value={providers}>
-      <RootComponent></RootComponent>
-    </Context.Provider>
-  )
+export const setService = (providers) => {
+  return (RootComponent) => {
+    return (
+      <ServiceContext.Provider value={providers}>
+        { typeof RootComponent === 'function' 
+            ? <RootComponent></RootComponent>
+            : RootComponent
+        }
+      </ServiceContext.Provider>
+    )
+  }
 }
 
 /**
@@ -27,9 +32,9 @@ export const injectMethods = (RealComponent) => {
   return class extends Component {
     render () {
       return (
-        <Context.Consumer>
+        <ServiceContext.Consumer>
           { value => <RealComponent {...value} {...this.props}></RealComponent> }
-        </Context.Consumer>
+        </ServiceContext.Consumer>
       )
     }
   }
