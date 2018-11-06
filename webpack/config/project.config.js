@@ -61,6 +61,8 @@ const config = {
       resolve(process.cwd(), "./src/assets"),
       resolve(process.cwd(), "./src/libs"),
       resolve(process.cwd(), "./src/components"),
+      resolve(process.cwd(), "./src/provider"),
+      resolve(process.cwd(), "./src/store"),
       "node_modules"
     ],
     alias: {
@@ -69,6 +71,7 @@ const config = {
       'libs': resolve(process.cwd(), './src/libs'),
       'components': resolve(process.cwd(), './src/components'),
       'provider': resolve(process.cwd(), './src/provider'),
+      'store': resolve(process.cwd(), './src/store')
     }
   }
 }

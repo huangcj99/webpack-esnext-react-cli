@@ -39,42 +39,7 @@ npm run build:prod
 
 页面对应的文件说明
 ```
-├── bin # 编译部署等脚本
-|
-├── public # 编译输出
-|
-├── src # 源文件目录
-|   ├── assets # 网站公共资源以及全局css
-|   |
-|   ├── components # 公共组件
-|   |
-|   ├── libs # 库
-|   |
-|   ├── pages # 页面
-|         ├── test # 页面文件夹
-|               ├── components # 存放vue组件
-|               ├── test.html # 模板html
-|               ├── test.scss # scss文件用于非单文件scss编写
-|               ├── test.vue # vue组件入口
-|               ├── test.js # js入口（modern入口）
-|               ├── test-legacy.js # js入口（legacy入口，打包时会自动根据modern入口创建，不需要手动创建，你要手动新建个也是可以的）
-|
-├── webpack
-|   ├── compile # 打包时输出modern包和legacy包的配置
-|   ├── loader # loader配置（babel-loader涉及到打包所以放在了compile下）
-|   ├── utils # 工具
-|   ├── config
-|   |      ├── project.config.js # 开发/线上配置，以及开发代理接口配置
-|   |      ├── dev-include-entries.config.js # 开发时可配置需要编译的入口
-|   |      ├── exclude-entries.config.js # 打包时可配置排除的入口
-|   |      ├── postcss.config.js # postcss插件配置
-|   |      ├── split-chunks.config.js # 可配置多个chunk打包
-|   |
-|   ├── dll.config.js #  用于打包开发vendor.dll.js的配置文件(本地开发时，避免重复编译vendor，节省时间)
-|   ├── dev.config.js # 本地开发配置
-|   ├── test.config.js # 测试配置
-|   ├── prod.config.js # 线上配置
-|
+暂无
 ```
 
 #### 1、注入js与css依赖:
@@ -138,7 +103,7 @@ addAssets方法可以传入一个chunks数组，'chunk:inline'可以将chunk内�
 const splitChunksConfig = {
   // 项目基础包
   'vendor': {
-    test: /node_modules\/vue/g,
+    test: /node_modules\/react/g,
     name: 'vendor',
     chunks: 'all',
     enforce: true,
@@ -146,7 +111,7 @@ const splitChunksConfig = {
   },
   // 单页面需要引入vue-router，这里单独分割出来
   'spa-vendor': {
-    test: /node_modules\/vue-router/g,
+    test: /node_modules\/react-router/g,
     name: 'spa-vendor',
     chunks: 'all',
     enforce: true, 
@@ -254,7 +219,8 @@ let config = {
       // 公共资源
       'assets': resolve(process.cwd(), './src/assets'),
       'libs': resolve(process.cwd(), './src/libs'),
-      'components': resolve(process.cwd(), './src/components')
+      'components': resolve(process.cwd(), './src/components'),
+      'provider': resolve(process.cwd(), './src/provider')
     }
   }
 

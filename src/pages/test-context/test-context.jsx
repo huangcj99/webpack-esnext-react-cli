@@ -6,22 +6,23 @@ import App from './app.jsx'
 
 // provider
 import { setProvider } from 'provider'
+// store
+import { setStore } from 'store'
 
-let states = {
-  states: {
-    a: 'a999',
-    b: 'b999'
-  }
+let store = {
+  a: '999'
 }
 
 // 顶层需要注入的方法
 let providers = Object.assign(
   {},
-  states
+  {
+    test: '000'
+  }
 )
 
 render(
   // Context.Provider注入方法，供子组件使用
-  setProvider(App, providers),
+  setStore(setProvider(App, providers), store),
   document.getElementById('app')
 )
