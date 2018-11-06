@@ -11,14 +11,12 @@ export const setStore = (store) => {
     class Store extends Component {
       constructor(props) {
         super(props)
-        this.state = Object.assign({}, store, (() => {
-          // 往state中注入setContext方法，用于改变context中的数据
-          return {
-            setContext: (target) => {
-              this.setState(target)
-            }
+        // 将store转化成state，并添加setContext方法用于改变状态
+        this.state = Object.assign(store, {
+          setContext: (target) => {
+            this.setState(target)
           }
-        })())
+        })
       }
 
       render () {
@@ -39,13 +37,11 @@ export const setStore = (store) => {
 }
 
 /**
- * 用注解的方式给子组件this中注入方法
+ * 用注解的方式给子组件props中注入store中的数据
  * @param {component} RealComponent 
  * 
- * 如： @injectMethods
+ * 如： @inject
  *     class TestComponent extends Component {}
- * 
- * 通过上面的方式就可将存储在顶层的方法注入进组件的props属性中
  */
 export const injectStore = (RealComponent) => {
   return class extends Component {
