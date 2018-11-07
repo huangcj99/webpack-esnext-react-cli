@@ -16,7 +16,6 @@ export default class App extends Component {
     setTimeout(() => {
       // 更改context中的值
       setContext({
-        time: new Date().getTime() + new Date().getTime(),
         person: {
           name: 'huang',
           age: 19

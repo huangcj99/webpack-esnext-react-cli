@@ -76,6 +76,7 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0"
+    "react-dom": "^16.7.0-alpha.0",
+    "react-router-dom": "^4.3.1"
   }
 }

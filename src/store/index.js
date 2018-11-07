@@ -13,16 +13,19 @@ export const setStore = (store) => {
         super(props)
         // 将store转化成state，并添加setContext方法用于改变状态
         this.state = Object.assign(store, {
-          setContext: (target) => {
-            this.setState(target)
-          }
+          setContext: this.setContext.bind(this)
         })
+      }
+
+      setContext (target) {
+        this.setState(target)
       }
 
       render () {
         return (
           <StoreContext.Provider value={this.state}>
-            { typeof RootComponent === 'function' 
+            { 
+              typeof RootComponent === 'function' 
                 ? <RootComponent></RootComponent>
                 : RootComponent
             }
@@ -48,7 +51,7 @@ export const injectStore = (RealComponent) => {
     render () {
       return (
         <StoreContext.Consumer>
-          { value => <RealComponent {...value} {...this.props}></RealComponent> }
+          { (value) => <RealComponent {...value} {...this.props}></RealComponent> }
         </StoreContext.Consumer>
       )
     }

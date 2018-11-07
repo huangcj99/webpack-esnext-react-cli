@@ -2,7 +2,7 @@ import 'babel-polyfill'
 import 'assets/css/reset.css'
 import React from 'react'
 import { render } from 'react-dom'
-import Root from './root.jsx'
+import Router from './router.jsx'
 
 // 注入provider
 import { combineProvider } from 'libs/combine-provider'
@@ -11,9 +11,9 @@ import { setStore } from 'store'
 import { servicesConfig, storeConfig } from './provider'
 
 render(
-  // 顶层注入services和store等provider
+  // 顶层注入service和store等provider
   combineProvider(
-    Root, 
+    Router, 
     setService(servicesConfig), 
     setStore(storeConfig)
   ),

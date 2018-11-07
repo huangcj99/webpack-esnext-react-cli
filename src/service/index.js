@@ -6,11 +6,12 @@ export const ServiceContext = React.createContext()
  * @param {component} RootComponent 传入class或者实例化的组件都可以
  * @param {object} globalMethods 
  */
-export const setService = (providers) => {
+export const setService = (services) => {
   return (RootComponent) => {
     return (
-      <ServiceContext.Provider value={providers}>
-        { typeof RootComponent === 'function' 
+      <ServiceContext.Provider value={services}>
+        { 
+          typeof RootComponent === 'function' 
             ? <RootComponent></RootComponent>
             : RootComponent
         }
