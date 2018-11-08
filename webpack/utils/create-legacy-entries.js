@@ -7,7 +7,7 @@ const createLegacyEntries = () => {
     // 遍历modern入口js，创建legacy入口
     for (let entry in config.modernEntries) {
       let entryPath = config.modernEntries[entry]
-      let lagacyEntry = entryPath.slice(0, -4) + '-legacy.jsx'
+      let lagacyEntry = entryPath.slice(0, -3) + '-legacy.js'
       let legacyPath = path.resolve(process.cwd(), lagacyEntry)
       let fileExists = fs.pathExistsSync(legacyPath)
 

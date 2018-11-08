@@ -10,10 +10,10 @@ const config = {
   // html entries
   htmlEntries: getEntry('./src/pages/**/*.html'),
   // modern entries
-  modernEntries: getEntry('./src/pages/**/!(*legacy).jsx'),
+  modernEntries: getEntry('./src/pages/**/!(*legacy).js'),
   // get lagacy entries
   getLegacyEntries: function () {
-    return getEntry('./src/pages/**/+(*legacy).jsx')
+    return getEntry('./src/pages/**/+(*legacy).js')
   },
 
   // modern boundles
