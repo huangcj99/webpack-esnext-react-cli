@@ -27,9 +27,19 @@ const isVendorLib = createRegExp({
   'react-dom': /node_modules\/react-dom/g,
   'classnames': /node_modules\/classnames/g,
   'provider': /src\/provider/g,
+  'store': /src\/store/g,
   // babel-polyfill
   'core-js': /node_modules\/core-js/g,
   'regenerator-runtime': /node_modules\/regenerator-runtime/g
+})
+
+/**
+ * 单页需要用到的库
+ */
+const isSpaVendorLib = createRegExp({
+  // react
+  'react-router': /node_modules\/react-router/g,
+  'react-router-dom': /node_modules\/react-router-dom/g
 })
 
 const splitChunksConfig = {
@@ -42,13 +52,13 @@ const splitChunksConfig = {
     priority: 2
   },
   // 单页面需要引入vue-router，这里单独分割出来
-  // 'spa-vendor': {
-  //   test: /node_modules\/vue-router/g,
-  //   name: 'spa-vendor',
-  //   chunks: 'all',
-  //   enforce: true,
-  //   priority: 10
-  // },
+  'spa-vendor': {
+    test: isSpaVendorLib,
+    name: 'spa-vendor',
+    chunks: 'all',
+    enforce: true,
+    priority: 10
+  },
   // 剩余chunk自动分割
   'commons': {
     name: 'commons',
