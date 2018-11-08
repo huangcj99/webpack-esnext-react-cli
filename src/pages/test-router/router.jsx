@@ -9,7 +9,6 @@ import asyncComponent from 'libs/async-component'
 
 import Root from './root'
 import A from './components/a'
-// import B from './components/b'
 const B = asyncComponent(() => import('./components/b'))
 
 const RouterConfig = (

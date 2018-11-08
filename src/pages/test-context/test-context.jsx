@@ -1,5 +1,5 @@
 import 'babel-polyfill'
-import 'assets/css/reset.css'
+import 'normalize.css'
 import React from 'react'
 import { render } from 'react-dom'
 import Root from './root.jsx'

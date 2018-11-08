@@ -6,9 +6,7 @@
 const filterEntries = [
   'all',
 
-  '/a',
-  '/b',
-  // 'test/',
+  // 'test-context/',
 ]
 
 module.exports = filterEntries
