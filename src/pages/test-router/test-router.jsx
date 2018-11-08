@@ -1,5 +1,6 @@
 import 'babel-polyfill'
-import 'normalize.css'
+import 'assets/css/reset.css'
+import 'assets/css/global.css'
 import React from 'react'
 import { render } from 'react-dom'
 import Router from './router.jsx'

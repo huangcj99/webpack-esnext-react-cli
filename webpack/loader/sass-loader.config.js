@@ -24,6 +24,9 @@ let sassLoaderConfig = {
           {
             loader: 'css-loader',
             options: {
+              modules: true,
+              localIdentName: '[nam]-[local]-[hash:base64:5]',
+              camelCase: true,
               sourceMap: openSourceMap
             }
           },

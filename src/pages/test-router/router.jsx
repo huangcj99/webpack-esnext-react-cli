@@ -8,8 +8,8 @@ import {
 import asyncComponent from 'libs/async-component'
 
 import Root from './root'
-import A from './components/a'
-const B = asyncComponent(() => import('./components/b'))
+import A from './components/a/a'
+const B = asyncComponent(() => import('./components/b/b'))
 
 const RouterConfig = (
   <HashRouter>

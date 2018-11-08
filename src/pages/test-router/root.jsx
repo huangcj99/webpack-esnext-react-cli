@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { injectMethods } from 'service'
 import { injectStore } from 'store'
+import styles from './root.scss'
 
 @injectMethods
 @injectStore
@@ -15,8 +16,10 @@ export default class App extends Component {
 
     return (
       <div>
-        <h1>test-router</h1>
-        <p>{ $dateFormat(time) }</p>
+        <h1 
+          className={`${styles['title-h1']} ${'flex-center'}`}
+        >test-router</h1>
+        <p className={styles.time}>{ $dateFormat(time) }</p>
         <div>
           <Link to="/a">点击跳转到a</Link>
         </div>
