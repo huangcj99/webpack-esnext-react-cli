@@ -19,7 +19,7 @@ export default class App extends Component {
         <h1 
           className={`${styles['title-h1']} ${'flex-center'}`}
         >test-router</h1>
-        <p className={styles.time}>{ $dateFormat(time) }</p>
+        <p className={styles['time']}>{ $dateFormat(time) }</p>
         <div>
           <Link to="/a">点击跳转到a</Link>
         </div>

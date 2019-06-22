@@ -24,7 +24,9 @@ const configBabelLoader = (browserlist) => {
         ],
         plugins: [
           'syntax-dynamic-import',
-          'transform-decorators-legacy'
+          'transform-decorators-legacy',
+          "syntax-class-properties",
+          "transform-class-properties"
         ]
       }
     }], // 实际匹配处理的loader
