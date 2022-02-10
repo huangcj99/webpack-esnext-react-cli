@@ -50,7 +50,7 @@
     "mini-css-extract-plugin": "^0.4.2",
     "mockjs": "^1.0.1-beta3",
     "node-notifier": "^5.2.1",
-    "node-sass": "^4.9.3",
+    "node-sass": "^7.0.0",
     "nunjucks": "^3.0.1",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "path-to-regexp": "^2.3.0",
